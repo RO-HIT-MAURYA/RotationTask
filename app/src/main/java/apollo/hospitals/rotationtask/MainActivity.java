@@ -39,12 +39,12 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 oldDegree = degree*360;
-                degree = random.nextInt(3600);//+720;
+                degree = random.nextInt(38);//+720;
                 Log.e("degreeIs",degree+"");
                 degree = degree+720;
                 Log.e("degreesIs",degree+"");
                 RotateAnimation rotateAnimation = new RotateAnimation(oldDegree,degree,RotateAnimation.RELATIVE_TO_SELF,0.5f,RotateAnimation.RELATIVE_TO_SELF,0.5f);
-                rotateAnimation.setDuration(3600);
+                rotateAnimation.setDuration(1000);
                 rotateAnimation.setFillAfter(true);
                 rotateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 rotateAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         textView.setText(currentNumber(360 - (degree%360)));
+                        Log.e("selectedIs",currentNumber(360 - (degree%360)));
                     }
 
                     @Override
